@@ -1,0 +1,17 @@
+import random
+import string
+
+def generar_contraseña(longitud):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    contraseña = ''.join(random.choice(caracteres) for _ in range(longitud))
+    return contraseña
+
+try:
+    longitud = int(input("¿De cuántos caracteres quieres la contraseña? "))
+    if longitud < 4:
+        print("La longitud debe ser de al menos 4 caracteres.")
+    else:
+        contraseña = generar_contraseña(longitud)
+        print("Tu contraseña generada es:", contraseña)
+except ValueError:
+    print("Por favor, ingresa un número válido.")
